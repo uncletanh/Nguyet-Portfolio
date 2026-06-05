@@ -34,10 +34,10 @@ export default function HeroSection() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
-              <button className="btn-premium flex items-center justify-center gap-2 group">
+              <a href="#projects" className="btn-premium flex items-center justify-center gap-2 group">
                 KHÁM PHÁ NGAY! 
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
               <a href="/cv/CV.pdf" target="_blank" rel="noopener noreferrer" className="btn-ghost flex items-center justify-center gap-2">
                 <Download size={20} /> Tải CV (IELTS 7.5+)
               </a>

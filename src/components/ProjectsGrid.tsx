@@ -41,7 +41,7 @@ export default function ProjectsGrid() {
   const selectedProject = projects.find(p => p.id === selectedId);
 
   return (
-    <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full relative z-10">
+    <section id="projects" className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full relative z-10">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">
