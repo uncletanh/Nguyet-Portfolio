@@ -34,20 +34,20 @@ export default function ContactFooter() {
               </div>
             </div>
             
-            <div className="flex flex-col gap-8 mb-12">
-              <a href="mailto:minhnguyet.marketing@gmail.com" className="flex items-center gap-6 group w-fit">
-                <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-[#10B981] group-hover:border-[#10B981]/50 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all duration-300">
-                  <Mail size={22} />
+            <div className="flex flex-col gap-6 md:gap-8 mb-12">
+              <a href="mailto:minhnguyet.marketing@gmail.com" className="flex items-center gap-4 md:gap-6 group w-full sm:w-fit">
+                <div className="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-[#10B981] group-hover:border-[#10B981]/50 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] transition-all duration-300">
+                  <Mail className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <span className="font-sans text-lg text-slate-300 group-hover:text-white transition-colors">
+                <span className="font-sans text-sm sm:text-base md:text-lg text-slate-300 group-hover:text-white transition-colors break-all">
                   minhnguyet.marketing@gmail.com
                 </span>
               </a>
-              <div className="flex items-center gap-6 group w-fit">
-                <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-[#3B82F6] group-hover:border-[#3B82F6]/50 transition-all duration-300">
-                  <MapPin size={22} />
+              <div className="flex items-center gap-4 md:gap-6 group w-full sm:w-fit">
+                <div className="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-[#3B82F6] group-hover:border-[#3B82F6]/50 transition-all duration-300">
+                  <MapPin className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <span className="font-sans text-lg text-slate-300">
+                <span className="font-sans text-sm sm:text-base md:text-lg text-slate-300">
                   Hà Nội, Việt Nam
                 </span>
               </div>
