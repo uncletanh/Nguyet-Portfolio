@@ -3,8 +3,20 @@
 import { motion } from "framer-motion";
 import { Mail, MapPin, Send, Coffee } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function ContactFooter() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+
+  const handleSend = () => {
+    if (!formData.name || !formData.message) {
+      alert("Vui lòng điền tên và lời nhắn nhé!");
+      return;
+    }
+    const subject = encodeURIComponent(`Portfolio Contact từ ${formData.name}`);
+    const body = encodeURIComponent(`Xin chào Nguyệt,\n\nMình là: ${formData.name}\nEmail: ${formData.email}\n\nNội dung lời nhắn:\n${formData.message}`);
+    window.location.href = `mailto:nguyetyeah@gmail.com?subject=${subject}&body=${body}`;
+  };
   return (
     <footer className="relative pt-32 pb-10 mt-20 border-t border-white/5 overflow-hidden z-10">
       {/* Background decoration Optimized */}
@@ -76,6 +88,8 @@ export default function ContactFooter() {
                 <input 
                   type="text" 
                   id="name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="John Doe" 
                   className="w-full px-5 py-4 rounded-xl border border-white/10 bg-white/5 text-white focus:outline-none focus:border-[#10B981] focus:bg-white/10 transition-colors font-sans"
                 />
@@ -85,6 +99,8 @@ export default function ContactFooter() {
                 <input 
                   type="email" 
                   id="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="example@gmail.com" 
                   className="w-full px-5 py-4 rounded-xl border border-white/10 bg-white/5 text-white focus:outline-none focus:border-[#10B981] focus:bg-white/10 transition-colors font-sans"
                 />
@@ -94,6 +110,8 @@ export default function ContactFooter() {
                 <textarea 
                   id="message"
                   rows={4}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Xin chào Nguyệt, mình muốn thảo luận về..." 
                   className="w-full px-5 py-4 rounded-xl border border-white/10 bg-white/5 text-white focus:outline-none focus:border-[#10B981] focus:bg-white/10 transition-colors font-sans resize-none"
                 ></textarea>
@@ -102,6 +120,7 @@ export default function ContactFooter() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="button"
+                onClick={handleSend}
                 className="btn-premium flex items-center justify-center gap-3 mt-4 w-full"
               >
                 Gửi ngay <Send size={20} />
