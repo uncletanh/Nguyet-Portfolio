@@ -20,7 +20,7 @@ export default function Moments() {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full relative rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(16,185,129,0.1)] border border-white/10 bg-black/20"
+        className="w-full max-w-4xl mx-auto relative rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(16,185,129,0.15)] border border-white/10 bg-black/20"
       >
         <Image 
           src="/images/img-2.jpg" 
