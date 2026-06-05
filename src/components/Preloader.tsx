@@ -6,10 +6,19 @@ export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Lock scroll
+    document.body.style.overflow = "hidden";
+    
     const timer = setTimeout(() => {
       setIsLoading(false);
+      // Unlock scroll
+      document.body.style.overflow = "";
     }, 2000);
-    return () => clearTimeout(timer);
+    
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = "";
+    };
   }, []);
 
   return (
