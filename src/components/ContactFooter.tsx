@@ -7,15 +7,48 @@ import { useState } from "react";
 
 export default function ContactFooter() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSend = () => {
-    if (!formData.name || !formData.message) {
-      alert("Vui lòng điền tên và lời nhắn nhé!");
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Vui lòng điền đầy đủ thông tin (Tên, Email và Lời nhắn) nhé!");
       return;
     }
-    const subject = encodeURIComponent(`Portfolio Contact từ ${formData.name}`);
-    const body = encodeURIComponent(`Xin chào Nguyệt,\n\nMình là: ${formData.name}\nEmail: ${formData.email}\n\nNội dung lời nhắn:\n${formData.message}`);
-    window.location.href = `mailto:nguyetyeah@gmail.com?subject=${subject}&body=${body}`;
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "f7efe5af-19c3-4208-84a4-04c649c54c48",
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: "Tin nhắn mới từ Portfolio của bạn",
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch (error) {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus("idle"), 5000); // Reset status after 5s
+    }
   };
   return (
     <footer id="contact" className="relative pt-32 pb-10 mt-20 border-t border-white/5 overflow-hidden z-10">
@@ -82,7 +115,7 @@ export default function ContactFooter() {
           {/* Form Section */}
           <div className="bento-box p-10 md:p-14 relative z-10">
             <h3 className="text-3xl font-serif font-bold text-white mb-8">Gửi tin nhắn</h3>
-            <form className="flex flex-col gap-6">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div>
                 <label htmlFor="name" className="block text-xs font-sans font-bold tracking-widest text-slate-400 uppercase mb-3">Tên của bạn</label>
                 <input 
@@ -119,12 +152,24 @@ export default function ContactFooter() {
               <motion.button 
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                type="button"
-                onClick={handleSend}
-                className="btn-premium flex items-center justify-center gap-3 mt-4 w-full"
+                type="submit"
+                disabled={isSubmitting}
+                className={`btn-premium flex items-center justify-center gap-3 mt-4 w-full ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                Gửi ngay <Send size={20} />
+                {isSubmitting ? "Đang gửi..." : "Gửi ngay"} <Send size={20} className={isSubmitting ? 'animate-pulse' : ''} />
               </motion.button>
+              
+              {/* Status Message */}
+              {submitStatus === "success" && (
+                <p className="text-[#10B981] text-sm font-sans text-center mt-2 font-medium">
+                  Cảm ơn bạn! Lời nhắn đã được bay đến Nguyệt.
+                </p>
+              )}
+              {submitStatus === "error" && (
+                <p className="text-[#FF6B5A] text-sm font-sans text-center mt-2 font-medium">
+                  Lỗi hệ thống. Vui lòng thử lại hoặc gửi qua mail trực tiếp nhé!
+                </p>
+              )}
             </form>
           </div>
         </div>
