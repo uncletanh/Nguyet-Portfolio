@@ -18,7 +18,7 @@ export default function ContactFooter() {
     window.location.href = `mailto:nguyetyeah@gmail.com?subject=${subject}&body=${body}`;
   };
   return (
-    <footer className="relative pt-32 pb-10 mt-20 border-t border-white/5 overflow-hidden z-10">
+    <footer id="contact" className="relative pt-32 pb-10 mt-20 border-t border-white/5 overflow-hidden z-10">
       {/* Background decoration Optimized */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#10B981] to-transparent opacity-30" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 rounded-full opacity-[0.03] bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#FF6B5A] via-[#FF6B5A]/20 to-transparent -z-10" />

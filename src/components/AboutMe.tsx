@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function AboutMe() {
   return (
-    <section className="py-24 px-4 md:px-8 max-w-7xl mx-auto w-full relative z-10">
+    <section id="skills" className="py-20 md:py-32 px-4 md:px-8 max-w-7xl mx-auto w-full relative z-10">
       <div className="mb-16 md:mb-24 text-center md:text-left">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">
           Kỹ Năng & <span className="heading-aurora">Chuyên Môn</span>

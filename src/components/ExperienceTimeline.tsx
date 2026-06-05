@@ -48,8 +48,8 @@ export default function ExperienceTimeline() {
   ];
 
   return (
-    <section className="py-24 px-4 md:px-8 max-w-4xl mx-auto w-full relative z-10">
-      <div className="mb-20">
+    <section id="experience" className="py-24 px-4 md:px-8 max-w-5xl mx-auto w-full relative z-10">
+      <div className="mb-16 md:mb-24 text-center md:text-left">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">
           Hành Trình <span className="heading-aurora">Trải Nghiệm</span>
         </h2>
