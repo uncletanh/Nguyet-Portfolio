@@ -13,54 +13,54 @@ export default function HeroSection() {
         <div className="absolute top-[20%] right-[-10%] w-[40%] h-[60%] rounded-full opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#3B82F6] via-[#3B82F6]/20 to-transparent" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-8 w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 w-full flex flex-col items-center gap-12 lg:gap-20">
         
-        {/* Left Content */}
-        <div className="flex-1 text-center lg:text-left z-10">
+        {/* Top Content */}
+        <div className="w-full text-center z-10 pt-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <span className="text-[#10B981] font-sans tracking-[0.2em] text-sm uppercase font-semibold mb-4 block">
-              Digital Marketer & Content Creator
+              Sinh viên Quản trị Kinh doanh
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight">
-              Minh Nguyet <br/>
-              <span className="heading-aurora">Luong</span>
+              Lương Minh <br/>
+              <span className="heading-aurora">Nguyệt</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-xl mx-auto lg:mx-0 font-sans leading-relaxed">
-              Giao thoa giữa tư duy nghiên cứu học thuật và sức sáng tạo thực chiến của thế hệ Gen Z.
+            <p className="text-lg md:text-xl text-slate-400 mb-10 max-w-3xl mx-auto font-sans leading-relaxed">
+              Hi, mình là Nguyệt! Mình đang là sinh viên năm cuối khoa Quản trị Kinh doanh tại ĐH Bách Khoa Hà Nội – nơi nạp cho mình cả tư duy phân tích số liệu lẫn cái nhìn thực chiến về kinh tế. Bạn đang tò mò một Gen Z hệ Bách Khoa sẽ làm dự án như thế nào, master những công cụ gì và có kỹ năng ra sao? Câu trả lời nằm ngay ở cú cuộn chuột tiếp theo của bạn đó!
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
               <button className="btn-premium flex items-center justify-center gap-2 group">
-                Khám phá dự án 
+                KHÁM PHÁ NGAY! 
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="btn-ghost flex items-center justify-center gap-2">
+              <a href="/cv/CV.pdf" target="_blank" rel="noopener noreferrer" className="btn-ghost flex items-center justify-center gap-2">
                 <Download size={20} /> Tải CV (IELTS 7.5+)
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>
 
-        {/* Right Image */}
-        <div className="flex-1 w-full max-w-lg lg:max-w-none relative z-10">
+        {/* Full-width Image */}
+        <div className="w-full relative z-10 mb-20">
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.95, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="w-full aspect-[4/5] relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(16,185,129,0.15)]"
+            className="w-full aspect-[21/9] md:aspect-[3/1] relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(16,185,129,0.15)]"
           >
             {/* Inner Glow */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050A15] via-transparent to-transparent z-10 opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050A15] via-transparent to-transparent z-10 opacity-40" />
             
             <Image 
               src="/images/img-1.jpg" 
               alt="Minh Nguyet Portrait" 
               fill 
-              className="object-cover"
+              className="object-cover object-top md:object-center"
               priority
             />
           </motion.div>
