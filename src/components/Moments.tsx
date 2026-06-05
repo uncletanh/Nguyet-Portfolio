@@ -20,16 +20,17 @@ export default function Moments() {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="w-full relative aspect-[16/9] md:aspect-[21/9] rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(16,185,129,0.1)] border border-white/10"
+        className="w-full relative rounded-[2rem] overflow-hidden shadow-[0_0_50px_rgba(16,185,129,0.1)] border border-white/10 bg-black/20"
       >
         <Image 
           src="/images/img-2.jpg" 
           alt="My Moments Collage" 
-          fill 
-          className="object-cover"
+          width={1920}
+          height={1080}
+          className="w-full h-auto"
         />
         {/* Subtle overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050A15]/80 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050A15]/60 via-transparent to-transparent pointer-events-none" />
       </motion.div>
     </section>
   );
